@@ -10,12 +10,6 @@ const (
 	prime int = 101
 )
 
-func main() {
-	pattern := "abc" //hash(abc) = 97 + 98 * 101 + 99 * 101 * 101
-	text := "deabcfabc"
-	compare(pattern, text)
-}
-
 func compare(pattern string, text string) {
 	m := len([]rune(pattern))
 	n := len([]rune(text))
