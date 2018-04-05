@@ -10,6 +10,15 @@ const (
 	prime int = 101
 )
 
+//Input:  txt[] = "THIS IS A TEST TEXT"
+//        pat[] = "TEST"
+//Output: Pattern found at index 10
+
+//Input:  txt[] =  "AABAACAADAABAABA"
+//        pat[] =  "AABA"
+//Output: Pattern found at index 0
+//        Pattern found at index 9
+//        Pattern found at index 12
 func compare(pattern string, text string) {
 	m := len([]rune(pattern))
 	n := len([]rune(text))
