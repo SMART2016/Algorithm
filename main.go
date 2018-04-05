@@ -13,4 +13,7 @@ func main() {
 	a := []int{1, 3, 5, 7, 8, 6, 0, -1}
 	sum := 6
 	fmt.Println("Num of Pairs:", count(a, sum))
+
+	arr := []int{10, 40, 20}
+	fmt.Println(reduceArray(arr))
 }
