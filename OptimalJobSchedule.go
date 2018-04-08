@@ -12,6 +12,18 @@ import (
 //Example:
 //   jobs = [{2, 8},{3, 5},{2, 4},{10, 13},{14, 17},{9, 11}]
 //   Output = [{2 4} {9 11} {14 17}]
+//Algorithm:
+//		- sort the set in ascending order of there start time
+//		- push the first element into a stack
+//		- iterate over the sorted set starting from the 1st index
+//			- compare if the element at the top of the stack overlaps with the current element and if the endtime of the current element is less than the current stack element
+//				- pop the element at the top of the stack
+//				- push the current elementto the stack
+//			- else
+//				- Add the current element at the top of the stack to the result set
+//				- push the current element to the stack
+//		- If the stack is not empty:
+//			-pop the element from the stack and add it to the result set
 
 func getOptimalJobSet(intervals []interval) []interval {
 	var result []interval = make([]interval, 0)
