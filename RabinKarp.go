@@ -19,13 +19,13 @@ const (
 //Output: Pattern found at index 0
 //        Pattern found at index 9
 //        Pattern found at index 12
-func compare(pattern string, text string) {
+func compare(pattern string, text string) []int {
 	m := len([]rune(pattern))
 	n := len([]rune(text))
 	indexMatched := make([]int, 0)
 	if m <= 0 || n <= 0 || m > n {
 		fmt.Println("Invalid Pattern , Pattern must be smaller than or equal to the actual Text")
-		return
+		return nil
 	}
 	fmt.Println("Text is: ", text)
 	fmt.Println("Pattern is:", pattern)
@@ -46,7 +46,7 @@ func compare(pattern string, text string) {
 			hashInitialText = recalculateHash(hashInitialText, int(runeText[i]), int(runeText[i+3]), len(pattern))
 		}
 	}
-	fmt.Println(indexMatched)
+	return indexMatched
 }
 
 //The recalculate hash for rolling string:
