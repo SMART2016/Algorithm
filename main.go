@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"golang.org/x/tour/tree"
+)
 
 func main() {
 
@@ -29,4 +33,18 @@ func main() {
 	}
 
 	fmt.Println("Optimal set of Jobs: ", getOptimalJobSet(s))
+
+	//LevelOrderTraversal
+	t := new(tree.Tree)
+	t.Left = new(tree.Tree)
+	t.Right = new(tree.Tree)
+	t.Value = 2
+	t.Left.Value = 7
+	t.Right.Value = 5
+	//	t.Right.Right = tree.New(9)
+	//	t.Right.Right.Right = tree.New(4)
+	//	t.Left.Right = tree.New(6)
+	//	t.Left.Right.Left = tree.New(1)
+	//	t.Left.Right.Right = tree.New(11)
+	LevelOrder(t)
 }
