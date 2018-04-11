@@ -17,15 +17,20 @@ func LevelOrder(t *tree.Tree) {
 	go func() {
 		len := treeLength(t, 0)
 		for i := 1; i < len; i++ {
-			val := <-queue
-			fmt.Println("val is:", val.Value)
+			select {
+			case val := <-queue:
 
-			if val.Left != nil {
-				queue <- val.Left
-			}
+				fmt.Println("val is:", val.Value)
 
-			if val.Right != nil {
-				queue <- val.Right
+				if val.Left != nil {
+					queue <- val.Left
+				}
+
+				if val.Right != nil {
+					queue <- val.Right
+				}
+			default:
+				fmt.Print("No data")
 			}
 			waitqueue <- i
 		}
