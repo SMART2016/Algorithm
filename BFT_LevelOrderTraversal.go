@@ -30,7 +30,7 @@ func LevelOrder(t *tree.Tree) {
 					queue <- val.Right
 				}
 			default:
-				fmt.Print("No data")
+				fmt.Println("No data")
 			}
 			waitqueue <- i
 		}

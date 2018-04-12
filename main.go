@@ -35,16 +35,24 @@ func main() {
 	fmt.Println("Optimal set of Jobs: ", getOptimalJobSet(s))
 
 	//LevelOrderTraversal
+	t := getTree()
+	LevelOrder(t)
+
+	//Inorder Traversal
+	InorderDFT(t)
+}
+
+func getTree() *tree.Tree {
 	t := new(tree.Tree)
 	t.Left = new(tree.Tree)
 	t.Right = new(tree.Tree)
 	t.Value = 2
 	t.Left.Value = 7
 	t.Right.Value = 5
-	//	t.Right.Right = tree.New(9)
-	//	t.Right.Right.Right = tree.New(4)
-	//	t.Left.Right = tree.New(6)
-	//	t.Left.Right.Left = tree.New(1)
-	//	t.Left.Right.Right = tree.New(11)
-	LevelOrder(t)
+	t.Left.Right = new(tree.Tree)
+	t.Left.Left = new(tree.Tree)
+	t.Left.Right.Value = 11
+	t.Left.Left.Value = 13
+
+	return t
 }
