@@ -6,35 +6,19 @@ import (
 	"golang.org/x/tour/tree"
 )
 
-func LevelOrder(t *tree.Tree) {
+type traverseAlgorithm func(node *tree.Tree, queue chan *tree.Tree)
+
+func BFT(t *tree.Tree) {
 	fmt.Println("Tree length is: ", treeLength(t, 0))
 	queue := make(chan *tree.Tree, 100)
 	waitqueue := make(chan int, 100)
+
 	if t != nil {
 		queue <- t
 	}
 
 	go func() {
-		len := treeLength(t, 0)
-		for i := 1; i < len; i++ {
-			select {
-			case val := <-queue:
-
-				fmt.Println("val is:", val.Value)
-
-				if val.Left != nil {
-					queue <- val.Left
-				}
-
-				if val.Right != nil {
-					queue <- val.Right
-				}
-			default:
-				fmt.Println("No data")
-			}
-			waitqueue <- i
-		}
-
+		traverseTree(t, queue, waitqueue, levelOrderAlgo)
 	}()
 
 	for n := 1; n < treeLength(t, 0); n++ {
@@ -42,6 +26,30 @@ func LevelOrder(t *tree.Tree) {
 	}
 }
 
+func traverseTree(t *tree.Tree, queue chan *tree.Tree, waitqueue chan int, algo traverseAlgorithm) {
+	len := treeLength(t, 0)
+	for i := 1; i < len; i++ {
+		select {
+		case node := <-queue:
+			algo(node, queue)
+		default:
+			fmt.Print("No data")
+		}
+		waitqueue <- i
+	}
+}
+
+func levelOrderAlgo(node *tree.Tree, queue chan *tree.Tree) {
+	fmt.Println("val is:", node.Value)
+
+	if node.Left != nil {
+		queue <- node.Left
+	}
+
+	if node.Right != nil {
+		queue <- node.Right
+	}
+}
 func treeLength(t *tree.Tree, oldLength int) int {
 
 	if t != nil {

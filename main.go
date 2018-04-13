@@ -36,7 +36,7 @@ func main() {
 
 	//LevelOrderTraversal
 	t := getTree()
-	LevelOrder(t)
+	BFT(t)
 
 	//Inorder Traversal
 	InorderDFT(t)
@@ -53,6 +53,5 @@ func getTree() *tree.Tree {
 	t.Left.Left = new(tree.Tree)
 	t.Left.Right.Value = 11
 	t.Left.Left.Value = 13
-
 	return t
 }
