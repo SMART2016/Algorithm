@@ -33,13 +33,15 @@ func main() {
 	}
 
 	fmt.Println("Optimal set of Jobs: ", getOptimalJobSet(s))
-
 	//LevelOrderTraversal
 	t := getTree()
 	BFT(t)
 
 	//Inorder Traversal
 	InorderDFT(t)
+
+	//PreOrder traversal
+	PreorderDFT(t)
 }
 
 func getTree() *tree.Tree {

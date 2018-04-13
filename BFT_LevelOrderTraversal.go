@@ -28,20 +28,21 @@ func BFT(t *tree.Tree) {
 
 func traverseTree(t *tree.Tree, queue chan *tree.Tree, waitqueue chan int, algo traverseAlgorithm) {
 	len := treeLength(t, 0)
+	ordersSet := make([]int, 0)
 	for i := 1; i < len; i++ {
 		select {
 		case node := <-queue:
+			ordersSet = append(ordersSet, node.Value)
 			algo(node, queue)
 		default:
 			fmt.Print("No data")
 		}
 		waitqueue <- i
 	}
+	fmt.Println("Level Order set:", ordersSet)
 }
 
 func levelOrderAlgo(node *tree.Tree, queue chan *tree.Tree) {
-	fmt.Println("val is:", node.Value)
-
 	if node.Left != nil {
 		queue <- node.Left
 	}
