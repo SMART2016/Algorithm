@@ -42,6 +42,10 @@ func main() {
 
 	//PreOrder traversal
 	PreorderDFT(t)
+
+	//Heap Sort MAX/Min heap : selection sort using heap datastructure
+	arr = []int{4, 10, 3, 5, 1}
+	HeapSort(arr, 5)
 }
 
 func getTree() *tree.Tree {
