@@ -45,7 +45,17 @@ func main() {
 
 	//Heap Sort MAX/Min heap : selection sort using heap datastructure
 	arr = []int{4, 10, 3, 5, 1}
-	HeapSort(arr, 5)
+	//HeapSort(arr, 5)
+
+	//Partition
+	//arr = []int{13, 2, 10, 5, 6, 15, 9}
+	quickSort(arr, 0, len(arr)-1)
+	//	x2 := Partition(arr, 0, Partition(arr, 0, len(arr)-1)-1)
+	//	x1 := Partition(arr, Partition(arr, 0, len(arr)-1)+1, len(arr)-1)
+	//	fmt.Println(x)
+	//	fmt.Println(x2)
+	fmt.Println(arr)
+
 }
 
 func getTree() *tree.Tree {
