@@ -12,7 +12,10 @@ func (l *Graph) DFT(node int) {
 		l.frontier[node] = true
 		curr := val.Front()
 		for i := 0; i < val.Length(); i++ {
-			if _, ok := l.frontier[curr.Value.(int)]; !ok {
+			_, ok := l.frontier[curr.Value.(int)]
+			_, okExplored := l.explored[curr.Value.(int)]
+
+			if !ok && !okExplored {
 				l.parent[curr.Value.(int)] = node
 				l.DFT(curr.Value.(int))
 			} else if _, ok := l.explored[curr.Value.(int)]; !ok {
@@ -21,6 +24,7 @@ func (l *Graph) DFT(node int) {
 			curr = curr.Next()
 		}
 		l.process_dftVertex(node)
+		delete(l.frontier, node)
 		l.explored[node] = true
 	}
 }
