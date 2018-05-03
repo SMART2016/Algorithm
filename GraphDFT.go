@@ -27,7 +27,8 @@ func (l *Graph) DFT(node int) {
 
 //Called ones for each edge, and if the adjacent node to the current
 //node is already explored that means the edge was already visited earlier
-//Also can be used to detect cycles in a graph
+//- Also can be used to detect cycles in a graph
+//- can be used to detect all Back Edges
 func (l *Graph) process_DFTedge(x int, y int) {
 	if l.parent[x] != y {
 		l.cycles = append(l.cycles, fmt.Sprintf("%d --> %d", x, y))

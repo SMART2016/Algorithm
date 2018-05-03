@@ -61,6 +61,7 @@ func (l *Graph) PrintParentLst(traversalAlgo string) {
 
 //Called ones for each edge, and if the adjacent node to the current
 //node is already explored that means the edge was already visited earlier
+//Can be used for two coloring and Bipartite check
 func (l *Graph) process_edge(x int, y int) {
 	fmt.Println("Proces Edge: ", x, "-->", y)
 }
