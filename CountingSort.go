@@ -18,5 +18,5 @@ func countSort(a []int, max int) {
 		c[b[a[i]]-1] = a[i]
 		b[a[i]] = b[a[i]] - 1
 	}
-	fmt.Println(c)
+	fmt.Println("Counting Sort:", c)
 }

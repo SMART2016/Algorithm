@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 
 	"golang.org/x/tour/tree"
@@ -55,8 +56,29 @@ func main() {
 	//Counting sort
 	countSort(arr, 10)
 
+	//Breath First Traversal Graph
+	g := creatGraph()
+	g.BFT(1)
+	g.PrintParentLst()
+
 }
 
+func creatGraph() *Graph {
+	g := NewGraph()
+	g.addEdge(1, 2)
+	g.addEdge(1, 6)
+	g.addEdge(2, 3)
+	g.addEdge(2, 1)
+	g.addEdge(3, 2)
+	g.addEdge(3, 4)
+	g.addEdge(4, 5)
+	g.addEdge(4, 3)
+	g.addEdge(5, 6)
+	g.addEdge(5, 4)
+	g.addEdge(6, 5)
+	g.addEdge(6, 1)
+	return g
+}
 func getTree() *tree.Tree {
 	t := new(tree.Tree)
 	t.Left = new(tree.Tree)
@@ -69,4 +91,9 @@ func getTree() *tree.Tree {
 	t.Left.Right.Value = 11
 	t.Left.Left.Value = 13
 	return t
+}
+
+func PrettyPrint(v interface{}) {
+	b, _ := json.MarshalIndent(v, "", "  ")
+	println(string(b))
 }
