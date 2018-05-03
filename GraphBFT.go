@@ -55,8 +55,8 @@ func (l *Graph) process_node(queue chan int, node int) {
 	l.process_vertex(node)
 }
 
-func (l *Graph) PrintParentLst() {
-	fmt.Println("BFT Parent List: ", l.parent)
+func (l *Graph) PrintParentLst(traversalAlgo string) {
+	fmt.Println(traversalAlgo, " Parent List: ", l.parent)
 }
 
 //Called ones for each edge, and if the adjacent node to the current

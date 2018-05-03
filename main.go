@@ -57,10 +57,15 @@ func main() {
 	countSort(arr, 10)
 
 	//Breath First Traversal Graph
-	g := creatGraph()
-	g.BFT(1)
-	g.PrintParentLst()
+	//	g := creatGraph()
+	//	g.BFT(1)
+	//	g.PrintParentLst("BFT")
 
+	//Depth First Traversal Graph
+	g := creatGraph()
+	g.DFT(1)
+	g.PrintParentLst("DFT")
+	fmt.Println(g.getCycles())
 }
 
 func creatGraph() *Graph {
@@ -69,12 +74,14 @@ func creatGraph() *Graph {
 	g.addEdge(1, 6)
 	g.addEdge(2, 3)
 	g.addEdge(2, 1)
+	g.addEdge(2, 5)
 	g.addEdge(3, 2)
 	g.addEdge(3, 4)
 	g.addEdge(4, 5)
 	g.addEdge(4, 3)
 	g.addEdge(5, 6)
 	g.addEdge(5, 4)
+	g.addEdge(5, 2)
 	g.addEdge(6, 5)
 	g.addEdge(6, 1)
 	return g

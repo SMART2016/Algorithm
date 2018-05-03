@@ -11,6 +11,7 @@ type Graph struct {
 	explored map[int]bool
 	frontier map[int]bool
 	parent   map[int]int
+	cycles   []string
 }
 
 func NewGraph() *Graph {
@@ -19,6 +20,7 @@ func NewGraph() *Graph {
 		explored: make(map[int]bool),
 		frontier: make(map[int]bool),
 		parent:   make(map[int]int),
+		cycles:   make([]string, 0),
 	}
 }
 
