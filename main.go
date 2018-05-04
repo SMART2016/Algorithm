@@ -60,12 +60,13 @@ func main() {
 	g := creatGraph()
 	g.BFT(1)
 	g.PrintParentLst("BFT")
+	fmt.Println("BFT shortest path", g.shortestPathFrmRoot(5, make([]int, 0)))
 
 	//Depth First Traversal Graph
 	g = creatGraph()
 	g.DFT(1)
 	g.PrintParentLst("DFT")
-	fmt.Println(g.getCycles())
+	fmt.Println("DFT Cycles:", g.getCycles())
 }
 
 func creatGraph() *Graph {
