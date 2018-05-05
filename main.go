@@ -78,8 +78,10 @@ func main() {
 	g = creatGraph()
 	g.DFT(1, 0)
 	g.PrintParentLst("DFT")
+	fmt.Println(g.parent[1])
 	fmt.Println("DFT cycles", g.getCycles())
 	fmt.Println("DFT Bridges:", g.getBridges())
+	fmt.Println("DFT Articulation Points:", g.getArticulationPoints())
 }
 
 func creatGraph() *Graph {

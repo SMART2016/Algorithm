@@ -6,6 +6,7 @@ import (
 	linklist "github.com/dustinspecker/go-singly-linked-list"
 )
 
+//Caveat: Graph cannot have a node as 0
 type Graph struct {
 	lst      map[int]*linklist.SinglyLinkedList
 	explored map[int]bool
@@ -15,6 +16,7 @@ type Graph struct {
 	low      []int
 	id       map[int]int
 	bridges  []string
+	AP       []int
 }
 
 func NewGraph() *Graph {
@@ -27,6 +29,7 @@ func NewGraph() *Graph {
 		low:      make([]int, 100),
 		id:       make(map[int]int),
 		bridges:  make([]string, 0),
+		AP:       make([]int, 0),
 	}
 }
 

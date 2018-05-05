@@ -7,6 +7,7 @@ import (
 var cycles []string
 
 func (l *Graph) DFT(node int, id int) int {
+	child := 0
 	//fmt.Println("Node is:", node)
 	if val, ok := l.lst[node]; ok {
 		l.id[node] = id
@@ -21,8 +22,19 @@ func (l *Graph) DFT(node int, id int) int {
 
 			if !ok && !okExplored {
 				l.parent[curr.Value.(int)] = node
+				child = child + 1
 				id = l.DFT(curr.Value.(int), id+1)
 				l.low[l.id[node]] = l.min(l.low[l.id[node]], l.low[l.id[curr.Value.(int)]])
+				val, _ := l.parent[node]
+				if val == 0 && child > 1 {
+					fmt.Printf("AP is: %v with number of children; %v\n", node, child)
+					l.AP = append(l.AP, node)
+				}
+
+				if val != 0 && l.id[node] <= l.low[l.id[curr.Value.(int)]] {
+					fmt.Printf("AP is: %v with number of children; %v\n", node, child)
+					l.AP = append(l.AP, node)
+				}
 				l.isBridge(node, curr.Value.(int))
 			} else if _, ok := l.explored[curr.Value.(int)]; !ok {
 				if l.parent[node] == curr.Value.(int) {
@@ -49,6 +61,10 @@ func (l *Graph) process_DFTedge(x int, y int) {
 	if l.parent[x] != y {
 		l.cycles = append(l.cycles, fmt.Sprintf("%d --> %d", x, y))
 	}
+}
+
+func (l *Graph) getArticulationPoints() []int {
+	return l.AP
 }
 func (l *Graph) getBridges() []string {
 	return l.bridges
