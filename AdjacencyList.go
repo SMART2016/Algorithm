@@ -58,3 +58,15 @@ func (l *Graph) string() {
 func (l *Graph) getEdges(key int) *linklist.SinglyLinkedList {
 	return l.lst[key]
 }
+
+func (l *Graph) isTree(N int, degree []int) {
+	var sum int = 0
+	for _, num := range degree {
+		sum = sum + num
+	}
+	if sum == 2*(N-1) {
+		fmt.Println("It is Tree")
+	} else {
+		fmt.Println("Not a Tree")
+	}
+}

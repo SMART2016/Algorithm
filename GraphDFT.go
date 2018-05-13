@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+
+	linklist "github.com/dustinspecker/go-singly-linked-list"
 )
 
 var cycles []string
@@ -25,22 +27,14 @@ func (l *Graph) DFT(node int, id int) int {
 				child = child + 1
 				id = l.DFT(curr.Value.(int), id+1)
 				l.low[l.id[node]] = l.min(l.low[l.id[node]], l.low[l.id[curr.Value.(int)]])
-				val, _ := l.parent[node]
-				if val == 0 && child > 1 {
-					fmt.Printf("AP is: %v with number of children; %v\n", node, child)
-					l.AP = append(l.AP, node)
-				}
+				l.addArticulationIfPresent(node, curr, child)
 
-				if val != 0 && l.id[node] <= l.low[l.id[curr.Value.(int)]] {
-					fmt.Printf("AP is: %v with number of children; %v\n", node, child)
-					l.AP = append(l.AP, node)
-				}
 				l.isBridge(node, curr.Value.(int))
 			} else if _, ok := l.explored[curr.Value.(int)]; !ok {
-				if l.parent[node] == curr.Value.(int) {
-					curr = curr.Next()
-					continue
-				}
+				//				if l.parent[node] == curr.Value.(int) {
+				//					curr = curr.Next()
+				//					continue
+				//				}
 				l.process_DFTedge(node, curr.Value.(int))
 			}
 			curr = curr.Next()
@@ -62,7 +56,17 @@ func (l *Graph) process_DFTedge(x int, y int) {
 		l.cycles = append(l.cycles, fmt.Sprintf("%d --> %d", x, y))
 	}
 }
+func (l *Graph) addArticulationIfPresent(node int, adjacent *linklist.Node, numOfChild int) {
+	if l.parent[node] == 0 && numOfChild > 1 {
+		fmt.Printf("AP is: %v with number of children; %v\n", node, numOfChild)
+		l.AP = append(l.AP, node)
+	}
 
+	if l.parent[node] != 0 && l.id[node] <= l.low[l.id[adjacent.Value.(int)]] {
+		fmt.Printf("AP is: %v with number of children; %v\n", node, numOfChild)
+		l.AP = append(l.AP, node)
+	}
+}
 func (l *Graph) getArticulationPoints() []int {
 	return l.AP
 }

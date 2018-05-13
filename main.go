@@ -66,9 +66,16 @@ func main() {
 	fmt.Println("------ Counting sort ---------/n")
 	countSort(arr, 10)
 
+	//Is Graph Tree
+	fmt.Println("------------IS GRAPH TREE-------------")
+	vertices := 3
+	degree := []int{1, 2, 1}
+	g := creatGraph()
+	g.isTree(vertices, degree)
+
 	//Breath First Traversal Graph
 	fmt.Println("------GRAPH BFT ---------/n")
-	g := creatGraph()
+	g = creatGraph()
 	g.BFT(1)
 	g.PrintParentLst("BFT")
 	fmt.Println("BFT shortest path", g.shortestPathFrmRoot(5, make([]int, 0)))
