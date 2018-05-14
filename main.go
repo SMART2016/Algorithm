@@ -98,6 +98,9 @@ func main() {
 	fmt.Println("------Weighted Graph Djkstras Algo---------\n")
 	wg = createWeightedUndirectedGraph()
 	wg.ShortestPath(1)
+
+	fmt.Println("------Floyd Warshall Algo---------\n")
+	AllPairShortestPath()
 }
 
 func createWeightedUndirectedGraph() *WeightedGraph {
