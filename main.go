@@ -91,19 +91,23 @@ func main() {
 	fmt.Println("DFT Articulation Points:", g.getArticulationPoints())
 
 	//Weighted Graph
-	fmt.Println("------Weighted Graph ---------\n")
+	fmt.Println("------Weighted Graph Prims Algo---------\n")
 	wg := createWeightedUndirectedGraph()
 	wg.MinSpanningPrims(1)
+
+	fmt.Println("------Weighted Graph Djkstras Algo---------\n")
+	wg = createWeightedUndirectedGraph()
+	wg.ShortestPath(1)
 }
 
 func createWeightedUndirectedGraph() *WeightedGraph {
 	wg := NewWeightedGraph()
-	wg.addEdge(1, 2, 8)
-	wg.addEdge(2, 1, 8)
+	wg.addEdge(1, 2, 2)
+	wg.addEdge(2, 1, 2)
 	wg.addEdge(2, 3, 5)
 	wg.addEdge(3, 2, 5)
 	wg.addEdge(3, 1, 10)
-	wg.addEdge(1, 3, 2)
+	wg.addEdge(1, 3, 10)
 	wg.addEdge(1, 4, 11)
 	wg.addEdge(4, 1, 11)
 	wg.addEdge(4, 3, 6)
