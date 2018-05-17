@@ -104,6 +104,9 @@ func main() {
 
 	fmt.Println("------Backtracking : All Subsets of a set---------\n")
 	generate_subset(2)
+
+	fmt.Println("------Backtracking : All Permutation of n---------\n")
+	finAllPerm(4)
 }
 
 func createWeightedUndirectedGraph() *WeightedGraph {

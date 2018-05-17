@@ -3,15 +3,14 @@ package main
 import "fmt"
 
 func backTrack(a []int, k int, n int) {
-	c := make([]int, 4)
-	nCandidates := 2
-
+	c := make([]int, n)
+	var nCandidates int
 	if is_solution(a, k, n) {
 		process_solution(a, k, n)
 	} else {
 		k = k + 1
 		if k < n {
-			constrcuct_candidate(a, k, n, c, nCandidates)
+			nCandidates = constrcuct_candidate(a, k, n, c, nCandidates)
 			for i := 0; i < nCandidates; i++ {
 
 				a[k] = c[i]
@@ -21,10 +20,11 @@ func backTrack(a []int, k int, n int) {
 	}
 }
 
-func constrcuct_candidate(a []int, k int, n int, c []int, nCandidates int) {
+func constrcuct_candidate(a []int, k int, n int, c []int, nCandidates int) int {
 	c[0] = 1
 	c[1] = 0
 	nCandidates = 2
+	return nCandidates
 }
 
 func is_solution(a []int, k int, n int) bool {
