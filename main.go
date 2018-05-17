@@ -101,6 +101,9 @@ func main() {
 
 	fmt.Println("------Floyd Warshall Algo---------\n")
 	AllPairShortestPath()
+
+	fmt.Println("------Backtracking : All Subsets of a set---------\n")
+	generate_subset(2)
 }
 
 func createWeightedUndirectedGraph() *WeightedGraph {
