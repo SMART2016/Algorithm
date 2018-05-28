@@ -107,6 +107,11 @@ func main() {
 
 	fmt.Println("------Backtracking : All Permutation of n---------\n")
 	finAllPerm(4)
+
+	fmt.Println("------Longest Substring---------\n")
+	a1 := []int{1, 4, 2, 1, 2, 4}
+	fmt.Println("maxlength for: Arr ", a1, " is:", findSubsetwithEqlSumHalf(a1, 6))
+
 }
 
 func createWeightedUndirectedGraph() *WeightedGraph {
