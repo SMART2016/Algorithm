@@ -31,10 +31,10 @@ func (l *Graph) DFT(node int, id int) int {
 
 				l.isBridge(node, curr.Value.(int))
 			} else if _, ok := l.explored[curr.Value.(int)]; !ok {
-				//				if l.parent[node] == curr.Value.(int) {
-				//					curr = curr.Next()
-				//					continue
-				//				}
+						if l.parent[node] == curr.Value.(int) {
+									curr = curr.Next()
+									continue
+								}
 				l.process_DFTedge(node, curr.Value.(int))
 			}
 			curr = curr.Next()
