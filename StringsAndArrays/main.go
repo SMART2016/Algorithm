@@ -7,8 +7,13 @@ import (
 
 func main(){
    fmt.Println("Arrays And String")
-   fmt.Println(HasUniqueCharsV2("iamforu"))
-   fmt.Println(isAnagramV2("dog","god123"))
+   fmt.Printf("\nString has All Unique characters: %t \n" ,HasUniqueCharsV2("iamforu"))
+  
+   fmt.Printf("Strings are anagram: %t \n",isAnagramV2("dog","god123"))
+
+   s1 := "Hi There How are You"
+   r := make([]rune,29)
+   fmt.Println("Space encoded String: "+encodeSpaceStringV2(s1,20, r))
 }
 
 //It is assumed that the string contains only small letters between a to z (26 Letters)
@@ -50,4 +55,30 @@ func SortStringByCharacterV2(s string) string {
               return r[i] < r[j]
       })
       return string(r)
+}
+
+//Encodes spaces in a string with %20 , without using any extra space
+func encodeSpaceStringV2(s string, length int,r1 []rune)string{
+  var spaceCount int
+  for _,v := range s{
+    if v == ' '{
+        spaceCount++
+    }
+  }
+
+  newLength := length + spaceCount * 2
+  r := []rune(s)
+  for i := length - 1; i >= 0; i-- {
+     if r[i] == ' '{
+        r1[newLength - 2]= '%'
+        r1[newLength - 1]= '2'
+        r1[newLength - 0]= '0'
+        newLength = newLength - 3
+     } else{
+       r1[newLength] = r[i]
+       newLength = newLength - 1
+     }
+  }
+
+  return string(r1)
 }
