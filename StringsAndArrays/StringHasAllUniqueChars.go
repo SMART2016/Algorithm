@@ -1,4 +1,4 @@
-package main
+package main;
 
 
 //It is assumed that the string contains only small letters between a to z (26 Letters)

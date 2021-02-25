@@ -14,7 +14,46 @@ func main(){
    s1 := "Hi There How are You"
    r := make([]rune,29)
    fmt.Println("Space encoded String: "+encodeSpaceStringV2(s1,20, r))
+
+   a := [3][4]int{  
+   {0, 1, 2, 3} ,  
+   {4, 5, 6, 7} ,  
+   {8, 9, 10, 11},  
+   }
+   markWithZero(a)
 }
+
+func markWithZero(matrix [3][4]int){
+   rows  := new([3]int)
+   cols  := new([4]int)
+
+   for  i := 0; i < 3; i++ {
+      for j := 0; j < 4; j++ {
+         if rows[i] != 1 && cols[j] != 1{
+             fmt.Printf("Processing %d : %d\n",i,j)
+             if matrix[i][j] == 0{
+                setRowAndColsToZero(&matrix,i,j)
+                rows[i] = 1
+                cols[j] = 1
+             }
+         } 
+
+      }
+   }
+
+   fmt.Println("Transformed Matrix : %v",matrix)
+}
+
+func setRowAndColsToZero(matrix *[3][4]int , row int ,col int){
+  for i := 0; i < 4;i++{
+      matrix[row][i] = 0
+  }  
+
+  for i:= 0;i< 3;i++{
+     matrix[i][col] = 0
+  }
+}
+
 
 //It is assumed that the string contains only small letters between a to z (26 Letters)
 func HasUniqueCharsV2(s string)(bool){
@@ -82,3 +121,4 @@ func encodeSpaceStringV2(s string, length int,r1 []rune)string{
 
   return string(r1)
 }
+
