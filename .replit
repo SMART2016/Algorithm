@@ -1,2 +1,2 @@
 language = "go"
-run = "go run StringsAndArrays/main.go"
+run = "go run src/StringsAndArrays/main.go"

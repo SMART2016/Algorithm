@@ -1,8 +1,8 @@
-package main
+package stringsandarrays
 
 import "sort"
 
-func isAnagram (s1 string,s2 string) bool{
+func IsAnagram (s1 string,s2 string) bool{
   if len(s1) != len(s2){
     return false
   }

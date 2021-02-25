@@ -1,8 +1,7 @@
-package main
-
+package stringsandarrays
 import"fmt"
 
-func markWithZeroV2(matrix [3][4]int,rLen int,cLen int){
+func MarkWithZero(matrix [3][4]int,rLen int,cLen int){
    rows  := new([3]int)
    cols  := new([4]int)
 

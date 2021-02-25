@@ -1,8 +1,8 @@
-package main
+package stringsandarrays
 
 
 //Encodes spaces in a string with %20 , without using any extra space
-func encodeSpaceString(s string, length int,r1 []rune)string{
+func EncodeSpaceString(s string, length int,r1 []rune)string{
   var spaceCount int
   for _,v := range s{
     if v == ' '{

@@ -1,5 +1,4 @@
-package main;
-
+package stringsandarrays
 
 //It is assumed that the string contains only small letters between a to z (26 Letters)
 func HasUniqueChars(s string)(bool){

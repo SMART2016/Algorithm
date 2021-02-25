@@ -4,3 +4,7 @@
   - An alternative to this problem is to use GO Modules from Go 1.11
 
 
+### 2. Setting GOPATH 
+- post 1.13+
+  - go env -w GOPATH=$HOME/go
+- https://github.com/golang/go/wiki/SettingGOPATH
