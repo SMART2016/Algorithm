@@ -28,6 +28,8 @@ func main() {
 
 	list := createList()
 	list.Display()
+  list.RemoveNode(list.Start,81)
+  list.Display()
 }
 
 func createList() *lst.List {
