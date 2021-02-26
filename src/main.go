@@ -28,7 +28,8 @@ func main() {
 
 	list := createList()
 	list.Display()
-  list.RemoveNode(list.Start,81)
+  //list.RemoveNode(list.Start,81)
+  list.RemoveDuplicates()
   list.Display()
 }
 
