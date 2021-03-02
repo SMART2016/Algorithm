@@ -59,4 +59,5 @@ func runLinkListProblems(){
   list.Display()
 
   list.FindKLast(4)
+  list.Partition(59)
 }
