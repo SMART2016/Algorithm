@@ -8,6 +8,29 @@ import (
 )
 
 func main() {
+  runStringsAndArrays()
+  runLinkListProblems()
+  
+}
+
+func createList() *lst.List {
+	items := &lst.List{}
+	size := 10
+	//rand_number := make([]int, size, size)
+	for i := 0; i < size; i++ {
+		data := rand.Intn(100)
+		if data == 0 {
+			i = i - 1
+			continue
+
+		}
+		items.InsertNode(data)
+	}
+	return items
+}
+
+func runStringsAndArrays(){
+// String and Array Problems
 	fmt.Println("Arrays And String")
 	fmt.Printf("\nString has All Unique characters: %t \n", st.HasUniqueChars("iamforu"))
 
@@ -25,26 +48,15 @@ func main() {
 	st.MarkWithZero(a, 3, 4)
 
 	st.IsStrRoatated("erbottlewat", "waterbottle")
+}
 
+func runLinkListProblems(){
+//Link List Problems ---------------------------------------
 	list := createList()
 	list.Display()
   //list.RemoveNode(list.Start,81)
   list.RemoveDuplicates()
   list.Display()
-}
 
-func createList() *lst.List {
-	items := &lst.List{}
-	size := 10
-	//rand_number := make([]int, size, size)
-	for i := 0; i < size; i++ {
-		data := rand.Intn(100)
-		if data == 0 {
-			i = i - 1
-			continue
-
-		}
-		items.InsertNode(data)
-	}
-	return items
+  list.FindKLast(4)
 }
