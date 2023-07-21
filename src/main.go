@@ -1,16 +1,16 @@
 package main
 
 import (
+	lst "Algorithm/src/linklist"
+	st "Algorithm/src/stringsandarrays"
 	"fmt"
-	lst "linklist"
 	"math/rand"
-	st "stringsandarrays"
 )
 
 func main() {
-  runStringsAndArrays()
-  runLinkListProblems()
-  
+	runStringsAndArrays()
+	runLinkListProblems()
+
 }
 
 func createList() *lst.List {
@@ -29,8 +29,8 @@ func createList() *lst.List {
 	return items
 }
 
-func runStringsAndArrays(){
-// String and Array Problems
+func runStringsAndArrays() {
+	// String and Array Problems
 	fmt.Println("Arrays And String")
 	fmt.Printf("\nString has All Unique characters: %t \n", st.HasUniqueChars("iamforu"))
 
@@ -50,14 +50,14 @@ func runStringsAndArrays(){
 	st.IsStrRoatated("erbottlewat", "waterbottle")
 }
 
-func runLinkListProblems(){
-//Link List Problems ---------------------------------------
+func runLinkListProblems() {
+	//Link List Problems ---------------------------------------
 	list := createList()
 	list.Display()
-  //list.RemoveNode(list.Start,81)
-  list.RemoveDuplicates()
-  list.Display()
+	//list.RemoveNode(list.Start,81)
+	list.RemoveDuplicates()
+	list.Display()
 
-  list.FindKLast(4)
-  list.Partition(59)
+	list.FindKLast(4)
+	list.Partition(59)
 }
