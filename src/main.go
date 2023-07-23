@@ -1,6 +1,7 @@
 package main
 
 import (
+	"Algorithm/src/dp"
 	lst "Algorithm/src/linklist"
 	st "Algorithm/src/stringsandarrays"
 	"fmt"
@@ -8,11 +9,16 @@ import (
 )
 
 func main() {
-	runStringsAndArrays()
-	runLinkListProblems()
+
+	fibonacciDp()
+	//runStringsAndArrays()
+	//runLinkListProblems()
 
 }
 
+func fibonacciDp() {
+	dp.Fibonacci(6)
+}
 func createList() *lst.List {
 	items := &lst.List{}
 	size := 10
