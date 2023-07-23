@@ -10,12 +10,18 @@ import (
 
 func main() {
 
-	fibonacciDp()
+	//fibonacciDp()
 	//runStringsAndArrays()
 	//runLinkListProblems()
-
+	minSqrDP()
 }
 
+func minSqrDP() {
+	fmt.Println(dp.MinSquares(41))
+}
+func stairsDP() {
+	fmt.Println(dp.ClimbStairs(4))
+}
 func fibonacciDp() {
 	dp.Fibonacci(6)
 }
