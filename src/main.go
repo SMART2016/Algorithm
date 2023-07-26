@@ -13,9 +13,12 @@ func main() {
 	//fibonacciDp()
 	//runStringsAndArrays()
 	//runLinkListProblems()
-	minSqrDP()
+	maxSumNonAdjacentDP()
 }
 
+func maxSumNonAdjacentDP() {
+	fmt.Println(dp.Adjacent([][]int{{1, 2, 3}, {4, 5, 6}}))
+}
 func minSqrDP() {
 	fmt.Println(dp.MinSquares(41))
 }
