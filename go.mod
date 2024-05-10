@@ -1,6 +1,6 @@
 module Algorithm
 
-go 1.19
+go 1.22.0
 
 require (
 	github.com/dustinspecker/go-singly-linked-list v0.0.0-20141125012246-0eddd5440eb8
