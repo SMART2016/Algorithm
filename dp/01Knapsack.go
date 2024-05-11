@@ -22,7 +22,7 @@ func Knapsack01(totalItems int, weights []int, values []int, totalCapacity int) 
 	return dp[totalItems][totalCapacity]
 }
 
-func TestKnapsack() int {
+func TestKnapsack01() int {
 	weights := []int{1, 2, 3, 5}
 	values := []int{10, 5, 4, 8}
 	totalCapacity := 5
