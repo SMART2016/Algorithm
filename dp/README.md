@@ -6,3 +6,6 @@
 
 ## Subset Sum or Target Sum
 - https://docs.google.com/document/d/1qKb4ctEkAT84pTJvuURqX6dlAPDh01WHmaKUiKBkDyw/edit
+
+## Partition Array Into Two Arrays to Minimize Sum Difference
+- https://docs.google.com/document/d/1qKb4ctEkAT84pTJvuURqX6dlAPDh01WHmaKUiKBkDyw/edit#heading=h.ovgivddus2c2
