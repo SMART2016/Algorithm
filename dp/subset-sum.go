@@ -26,6 +26,6 @@ func subsetSum(items []int, target int) int {
 
 func TestSubsetSum() int {
 	items := []int{1, 2, 3, 7}
-	target := 14
+	target := 6
 	return subsetSum(items[:], target)
 }
