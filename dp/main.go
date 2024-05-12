@@ -9,4 +9,5 @@ func main() {
 	fmt.Println("Subset Sum result", TestSubsetSum() > 0)
 	fmt.Println("Target Subset Sum result", TestSubsetSum())
 	fmt.Println("Minimum Partition Array Sum Difference result", TestMinimumPartitionArraySumDifference())
+	fmt.Println("Minimum refuel stops result", TestMinimumRefuelStops())
 }
