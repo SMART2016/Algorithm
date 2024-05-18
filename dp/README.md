@@ -9,3 +9,6 @@
 
 ## Partition Array Into Two Arrays to Minimize Sum Difference
 - https://docs.google.com/document/d/1qKb4ctEkAT84pTJvuURqX6dlAPDh01WHmaKUiKBkDyw/edit#heading=h.ovgivddus2c2
+
+## Count suare submatrix
+ - https://docs.google.com/document/d/1HusfxzOh7KoXpMEqTqNNBWeVSlqL4zfZu_R6w_5wMKA/edit

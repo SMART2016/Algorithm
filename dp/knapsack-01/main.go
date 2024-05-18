@@ -11,4 +11,5 @@ func main() {
 	fmt.Println("Minimum Partition Array Sum Difference result", TestMinimumPartitionArraySumDifference())
 	fmt.Println("Minimum refuel stops result", TestMinimumRefuelStops())
 	fmt.Println("equal Sum subarray result", TestEqualSumSubarray() > 0)
+	fmt.Println("# of square sub matrix", TestCountSquareSubMatrix())
 }
